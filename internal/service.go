@@ -5,10 +5,10 @@ import (
 )
 
 type yougoService struct {
-	db Backend
+	db YougoBackend
 }
 
-func NewYougoService(backend Backend) Service {
+func NewYougoService(backend YougoBackend) YougoService {
 	return &yougoService{db: backend}
 }
 

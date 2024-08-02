@@ -4,8 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
-	"yougo-api/internal"
-	"yougo-api/internal/store"
 )
 
 func printOutput(output any) {
@@ -18,13 +16,6 @@ func printOutput(output any) {
 }
 
 func main() {
-	backend, err := store.NewLocalBackend()
-
-	if err != nil {
-		os.Exit(1)
-	}
-
-	service := internal.NewYougoService(backend)
 
 	gos, _ := service.ListGos()
 	testGo, _ := service.GetGo("test")

@@ -1,13 +1,21 @@
 package internal
 
-import "yougo-api/api"
+import (
+	"net/http"
+	"yougo-api/api"
+)
 
-type Backend interface {
+type YougoBackend interface {
 	ListGos() ([]api.Go, error)
 	GetGo(id string) (api.Go, error)
 }
 
-type Service interface {
+type YougoService interface {
 	ListGos() ([]api.Go, error)
 	GetGo(id string) (api.Go, error)
+}
+
+type YougoAPI interface {
+	ListGos(w http.ResponseWriter, r *http.Request)
+	GetGo(w http.ResponseWriter, r *http.Request)
 }

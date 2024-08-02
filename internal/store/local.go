@@ -11,7 +11,7 @@ type localBackend struct {
 	gos       map[string]dbGo
 }
 
-func NewLocalBackend() (internal.Backend, error) {
+func NewLocalBackend() (internal.YougoBackend, error) {
 	gos, err := loadData()
 
 	if err != nil {
